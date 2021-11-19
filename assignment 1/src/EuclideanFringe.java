@@ -52,7 +52,8 @@ public class EuclideanFringe implements Fringe {
         int encoding = x.encoding ;
 
         for (int i = 0 ; i < 9 ; i++ ){
-            int w = encoding / 10 ;
+            int w = encoding % 10 ;
+            encoding = encoding / 10;
             int goal_x = w / 3 ;
             int goal_y = w % 3 ;
             int current_x = (8 - i ) / 3 ;

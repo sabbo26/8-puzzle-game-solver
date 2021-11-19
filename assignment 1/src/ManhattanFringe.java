@@ -35,6 +35,7 @@ public class ManhattanFringe implements Fringe{
 
         qu.add( new Wrapper( s , manhattan_distance(s) + s.depth ) );
 
+
     }
 
     @Override
@@ -54,14 +55,14 @@ public class ManhattanFringe implements Fringe{
         int encoding = x.encoding ;
 
         for (int i = 0 ; i < 9 ; i++ ){
-            int w = encoding / 10 ;
+            int w = encoding % 10 ;
+            encoding = encoding/10;
             int goal_x = w / 3 ;
             int goal_y = w % 3 ;
             int current_x = (8 - i ) / 3 ;
             int current_y = (8-i) % 3 ;
             cost += Math.abs( current_x - goal_x ) + Math.abs(current_y - goal_y);
         }
-
         return cost ;
     }
 }

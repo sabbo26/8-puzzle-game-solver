@@ -165,8 +165,13 @@ public class Solver {
 
         System.out.println("Path cost is "+ (path_to_goal.size()-1) +"\n");
 
-        while (! path_to_goal.isEmpty())
+       /*  --Uncomment this to print each step taken
+       while (! path_to_goal.isEmpty())
             print_array(path_to_goal.pop().encoding);
+
+        */
+
+
 
     }
 
@@ -187,9 +192,16 @@ public class Solver {
     public static void main(String[] args) {
 
         Solver s = new Solver();
-
-        s.solve_euclidean(125340678);
-
+        System.out.println("Enter the initial state of the puzzle: ");
+        int puzzle = new Scanner(System.in).nextInt();
+        System.out.println("USING DFS : ");
+        s.solve_dfs(puzzle);
+        System.out.println("USING BFS : ");
+        s.solve_bfs(puzzle);
+        System.out.println("USING A* (MANHATTAN DISTANCE AS HEURISTIC : ");
+        s.solve_manhattan(puzzle);
+        System.out.println("USING A* (EUCLIDEAN DISTANCE AS HEURISTIC) : ");
+        s.solve_euclidean(puzzle);
     }
 
 }
